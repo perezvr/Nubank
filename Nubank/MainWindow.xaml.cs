@@ -45,16 +45,15 @@ namespace Nubank
                         int parcela = defineParcela(descricao);
                         int numParcelas = defineNumParcelas(descricao);
 
-                        int.TryParse(descricao.Substring(descricao.LastIndexOf('/') + 1), out numParcelas);
-
                         lancamento = new Lancamento()
                         {
                             Data = DateTime.Parse(values[0]),
                             Categoria = values[1],
-                            Descricao = values[2],
+                            Descricao = defineDescricao(descricao),
                             Parcela = parcela,
                             NumParcelas = numParcelas,
-                            Valor = decimal.Parse(values[3].Replace('.', ','))
+                            Valor = decimal.Parse(values[3].Replace('.', ',')),
+                            Fatura = fatura,
                         };
 
                         fatura.Lancamentos.Add(lancamento);
@@ -80,8 +79,33 @@ namespace Nubank
 
         private int defineNumParcelas(string descricao)
         {
-            int.TryParse(descricao.Substring(descricao.LastIndexOf('/') + 1), out int numParcelas);
-            return numParcelas;
+            try
+            {
+                int.TryParse(descricao.Substring(descricao.LastIndexOf('/') + 1), out int numParcelas);
+                return numParcelas;
+            }
+            catch (Exception)
+            { return 0; }
+
         }
+
+        private string defineDescricao(string descricao)
+        {
+            try
+            {
+                return !descricao.IndexOf('/').Equals(-1)
+                    ? descricao.Substring(0, descricao.LastIndexOf(' '))
+                    : descricao;
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return descricao;
+            }
+            catch
+            {
+                return string.Empty;
+            }
+        }
+
     }
 }
