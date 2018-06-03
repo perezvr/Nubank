@@ -15,7 +15,8 @@ namespace Model
         public int Id { get; set; }
 
         public List<Lancamento> Lancamentos { get; set; }
-            
+        public DateTime DataInicial { get; set; }
+        public DateTime DataFinal { get; set; }
         public Fatura()
         {
             Lancamentos = new List<Lancamento>();

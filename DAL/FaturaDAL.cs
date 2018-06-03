@@ -3,5 +3,5 @@ using Model;
 
 namespace DAL
 {
-    class FaturaDAL : DAL<Fatura> { }
+    public class FaturaDAL : DAL<Fatura> { }
 }

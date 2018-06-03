@@ -29,7 +29,10 @@ namespace Nubank
 
             Lancamento lancamento;
             Fatura fatura = new Fatura();
-            LancamentoController c = new LancamentoController();
+            FaturaController c = new FaturaController();
+
+            fatura.DataInicial = DateTime.Parse("2018-05-01");
+            fatura.DataFinal = DateTime.Parse("2018-05-30");
 
             try
             {
@@ -62,7 +65,7 @@ namespace Nubank
                     }
                 }
 
-                fatura.Lancamentos.ForEach(x => c.Save(x));
+                c.Save(fatura);
             }
 
             catch (Exception ex)

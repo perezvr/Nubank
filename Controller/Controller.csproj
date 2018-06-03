@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContextController.cs" />
+    <Compile Include="FaturaController.cs" />
     <Compile Include="LancamentoController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
