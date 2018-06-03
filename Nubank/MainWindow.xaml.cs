@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Controller;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,6 +29,7 @@ namespace Nubank
 
             Lancamento lancamento;
             Fatura fatura = new Fatura();
+            LancamentoController c = new LancamentoController();
 
             try
             {
@@ -59,7 +61,10 @@ namespace Nubank
                         fatura.Lancamentos.Add(lancamento);
                     }
                 }
+
+                fatura.Lancamentos.ForEach(x => c.Save(x));
             }
+
             catch (Exception ex)
             {
                 throw;

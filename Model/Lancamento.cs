@@ -20,8 +20,10 @@ namespace Model
         public int Parcela { get; set; }
         public int NumParcelas { get; set; }
         public decimal Valor { get; set; }
+        public int FaturaId { get; set; }
 
-        [ForeignKey("Fatura_Id")]
+
+        [ForeignKey("FaturaId")]
         public virtual Fatura Fatura { get; set; }
     }
 }

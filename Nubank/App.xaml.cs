@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Controller;
 using System.Windows;
 
 namespace Nubank
@@ -13,5 +8,9 @@ namespace Nubank
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            ContextController.CreateDatabase();
+        }
     }
 }
