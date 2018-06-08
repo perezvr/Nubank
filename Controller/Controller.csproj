@@ -50,7 +50,9 @@
     <Compile Include="ContextController.cs" />
     <Compile Include="FaturaController.cs" />
     <Compile Include="LancamentoController.cs" />
+    <Compile Include="NubankController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
