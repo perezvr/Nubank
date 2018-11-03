@@ -7,6 +7,39 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <GroupBox Header="Lançamentos" Margin="10,10,10,89">
+            <Grid>
+                <DataGrid x:Name="gridProdutos" IsReadOnly="True" Background="White" RowBackground="White" CanUserResizeColumns="True" AlternatingRowBackground="#FFCDE7F0" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserSortColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Data" Width="50" Binding="{Binding Data, StringFormat=\{0:dd/MM/yyyy\}}"/>
+                        <DataGridTextColumn Header="Categoria" Width="85" Binding="{Binding Categoria}"/>
+                        <DataGridTextColumn Header="Descrição" Width="*" Binding="{Binding Descricao}"/>
+                        <DataGridTextColumn Header="Parcela" Width="50" Binding="{Binding Parcela}">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Valor" Width="50" Binding="{Binding Valor}">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Right" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Responsável" Width="130" Binding="{Binding Responsavel.Nome}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+        <Button x:Name="btnSelecionar" Content="_Selecionar" HorizontalAlignment="Right" Margin="0,0,102,36" VerticalAlignment="Bottom" Width="75" />
+        <Button x:Name="btnExcluir" Content="_Excluir" HorizontalAlignment="Right" Margin="0,0,10,36" VerticalAlignment="Bottom" Width="75" />
+        <Button x:Name="btnNovo" Content="_Novo" HorizontalAlignment="Left" Margin="10,0,0,36" VerticalAlignment="Bottom" Width="75" />
+        <StatusBar Height="24" VerticalAlignment="Bottom">
+            <StatusBarItem>
+                <TextBlock x:Name="statusBar"/>
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
 </Window>

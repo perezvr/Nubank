@@ -2,6 +2,7 @@
 using Model;
 using System;
 using System.IO;
+using System.Linq;
 
 namespace Controller
 {
@@ -23,7 +24,7 @@ namespace Controller
                 else
                     faturaDAL.Update(Fatura);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
@@ -50,7 +51,6 @@ namespace Controller
 
                     fatura.DataInicial = DateTime.Parse("2018-05-01");
                     fatura.DataFinal = DateTime.Parse("2018-05-30");
-
                     reader.ReadLine();
 
                     while (!reader.EndOfStream)
@@ -72,9 +72,11 @@ namespace Controller
                             NumParcelas = numParcelas,
                             Valor = decimal.Parse(values[3].Replace('.', ',')),
                             Fatura = fatura,
+                            Responsavel = new Responsavel() { Id = 1, }
                         };
 
                         fatura.Lancamentos.Add(lancamento);
+
                     }
                 }
 

@@ -14,7 +14,8 @@
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
 
-        public virtual DbSet<Fatura> Produto { get; set; }
-        public virtual DbSet<Lancamento> Composicao { get; set; }
+        public virtual DbSet<Fatura> Fatura { get; set; }
+        public virtual DbSet<Lancamento> Lancamento { get; set; }
+        public virtual DbSet<Responsavel> Responsavel { get; set; }
     }
 }

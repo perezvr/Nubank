@@ -51,6 +51,11 @@
     <Compile Include="FaturaDAL.cs" />
     <Compile Include="IDAL.cs" />
     <Compile Include="LancamentoDAL.cs" />
+    <Compile Include="Migrations\201807060158490_Initial.cs" />
+    <Compile Include="Migrations\201807060158490_Initial.Designer.cs">
+      <DependentUpon>201807060158490_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NubankContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,6 +71,11 @@
       <Project>{494B741B-F1D7-4395-8767-57A915B8B4A4}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807060158490_Initial.resx">
+      <DependentUpon>201807060158490_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

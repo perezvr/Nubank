@@ -21,9 +21,13 @@ namespace Model
         public int NumParcelas { get; set; }
         public decimal Valor { get; set; }
         public int FaturaId { get; set; }
+        public int ResponsavelId { get; set; }
+
 
 
         [ForeignKey("FaturaId")]
         public virtual Fatura Fatura { get; set; }
+        [ForeignKey("ResponsavelId")]
+        public virtual Responsavel Responsavel { get; set; }
     }
 }
